@@ -5,24 +5,24 @@ import java.time.Duration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-public class ChromeOpening {
+public class EdgeOpening {
 	public static void main(String[] args) {
-//		System.setProperty(
-//				"webdriver.Chrome",
-//				"D:\\Estudio\\Udemy\\TestingWorkspaceSTS\\Drivers\\20 de noviembre 2024\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
-		WebDriver chromeDriver = new ChromeDriver();
-		chromeDriver.get("https://ksiro.co");
-		chromeDriver.manage().window().maximize();
+		System.setProperty(
+		"webdriver.edge.driver",
+		"D:\\Estudio\\Udemy\\TestingWorkspaceSTS\\Drivers\\20 de noviembre 2024\\edgedriver_win64\\msedgedriver.exe");
+		WebDriver edgeDriver = new EdgeDriver();
+		edgeDriver.get("https://ksiro.co");
+		edgeDriver.manage().window().maximize();
 		
-		System.out.println("Título de la página: "+chromeDriver.getTitle());
-		System.out.println("URL: "+chromeDriver.getCurrentUrl());
+		System.out.println("Título de la página: "+edgeDriver.getTitle());
+		System.out.println("URL: "+edgeDriver.getCurrentUrl());
 		
-		chromeDriver.findElement(By.xpath("//input[@formcontrolname='username']")).sendKeys("cmuñoz");
-		WebDriverWait wait = new WebDriverWait(chromeDriver, Duration.ofSeconds(10));
-		WebElement passwordField = chromeDriver.findElement(By.xpath("//input[@formcontrolname='password']"));
+		edgeDriver.findElement(By.xpath("//input[@formcontrolname='username']")).sendKeys("cmuñoz");
+		WebDriverWait wait = new WebDriverWait(edgeDriver, Duration.ofSeconds(10));
+		WebElement passwordField = edgeDriver.findElement(By.xpath("//input[@formcontrolname='password']"));
 		WebElement loginButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@type='submit']")));
 		if (passwordField.isDisplayed() && passwordField.isEnabled()) {
 			passwordField.sendKeys("cmuñoz12");
@@ -38,15 +38,15 @@ public class ChromeOpening {
 		
 		
 		//Comentado porque esta instrucción trae todo el código fuente de la página y es largo
-		//System.out.println("PageSource: "+chromeDriver.getPageSource());
+		//System.out.println("PageSource: "+edgeDriver.getPageSource());
 		
-		//chromeDriver.findElement(By.xpath("//*[@id=\"wpforms-submit-8715\"]")).click();
+		//edgeDriver.findElement(By.xpath("//*[@id=\"wpforms-submit-8715\"]")).click();
 		
 		//Customized Xpath:
 		//Syntax: "//tagname[@attribute='value'"
 		
 		//Close the browser
-		//chromeDriver.close();
+		//edgeDriver.close();
 
 	}
 	
