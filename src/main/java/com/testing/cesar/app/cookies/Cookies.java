@@ -9,8 +9,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 public class Cookies {
 	
 	public static void main(String[] args) {
-		System.setProperty("webdriver.gecko.driver",
-				"D:\\Estudio\\Udemy\\TestingWorkspaceSTS\\Drivers\\20 de noviembre 2024\\geckodriver-v0.35.0-win64\\geckodriver.exe");
+		
 		WebDriver driverFirefox = new FirefoxDriver();
 		driverFirefox.get("https://www.google.com/");
 		driverFirefox.manage().window().maximize();
@@ -21,7 +20,7 @@ public class Cookies {
 		Set<Cookie> galletas =  driverFirefox.manage().getCookies();
 		System.out.println(galletas);
 		
-		driverFirefox.manage().deleteAllCookies();
+		//driverFirefox.manage().deleteAllCookies();
 	}
 	
 
